@@ -1,4 +1,4 @@
-import { IsDateString, IsNotEmpty } from "class-validator";
+import { IsDateString, IsNotEmpty, IsNumber } from "class-validator";
 
 
 export class CriarFluxoReceitaDto {
@@ -7,6 +7,7 @@ export class CriarFluxoReceitaDto {
     readonly data: Date;
 
     @IsNotEmpty()
+    @IsNumber()
     readonly preco: number;
 
     @IsNotEmpty()
