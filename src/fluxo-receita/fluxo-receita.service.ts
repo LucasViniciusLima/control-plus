@@ -1,6 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { Encryption } from 'src/common/encryption/encryption';
 import { CriarFluxoReceitaDto } from './dtos/criar-fluxo-receita.dto';
 import { FluxoReceita } from './interfaces/fluxo-receita.interface';
 
@@ -39,6 +40,7 @@ export class FluxoReceitaService {
 
     async atualizarFluxoReceita(_id: string, criarFluxoReceitaDto: CriarFluxoReceitaDto): Promise<void> {
         const fluxoReceitaEncontrado = await this.fluxoReceitaModel.findOne({ _id }).exec();
+
 
         if (!fluxoReceitaEncontrado) {
             throw new BadRequestException(`Fluxo de Receita com id: ${_id} não encontrado`);
