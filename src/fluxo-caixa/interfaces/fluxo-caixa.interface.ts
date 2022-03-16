@@ -1,8 +1,8 @@
 import { Document } from 'mongoose';
 
-export interface FluxoCusto extends Document{
+export interface FluxoCaixa extends Document{
     nome: string;
     preco: number;
-    tipo: number;
+    tipo: string;
     data: Date;
 }

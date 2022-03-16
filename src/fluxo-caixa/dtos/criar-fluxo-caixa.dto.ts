@@ -1,11 +1,10 @@
-import { IsDateString, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CriarFluxoCustoDto {
+export class CriarFluxoCaixaDto {
     @IsDateString()
     readonly data: Date;
 
-    @IsNotEmpty()
-    @IsNumber()
+    @IsString()
     readonly tipo: number;
 
     @IsNotEmpty()    
