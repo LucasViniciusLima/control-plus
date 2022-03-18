@@ -11,29 +11,39 @@ export class FluxoCaixaController {
 
     @Post()
     @UsePipes(ValidationPipe)
-    async criarFluxoCusto(@Body() criarFluxoCaixaDto: CriarFluxoCaixaDto): Promise<FluxoCaixa> {
+    async criarFluxoCaixa(@Body() criarFluxoCaixaDto: CriarFluxoCaixaDto): Promise<FluxoCaixa> {
         return await this.fluxoCaixaService.criarFluxoCaixa(criarFluxoCaixaDto);
     }
 
     @Get()
-    async consultarFluxosCustos(): Promise<FluxoCaixa[]> {
+    async consultarFluxosCaixa(): Promise<FluxoCaixa[]> {
         return await this.fluxoCaixaService.consultarFluxosCaixa();
     }
 
+    @Get('custos')
+    async consultarFluxosCusto(): Promise<FluxoCaixa[]> {
+        return await this.fluxoCaixaService.consultarFluxoCusto();
+    }
+
+    @Get('receitas')
+    async consultarFluxosReceita(): Promise<FluxoCaixa[]> {
+        return await this.fluxoCaixaService.consultarFluxoReceita();
+    }
+
     @Get('/:_id')
-    async consultarFluxoCustoPorId(@Param('_id', ValidacaoParametrosPipe) _id: string): Promise<FluxoCaixa> {
+    async consultarFluxoCaixaPorId(@Param('_id', ValidacaoParametrosPipe) _id: string): Promise<FluxoCaixa> {
         return await this.fluxoCaixaService.consultarFluxoCaixaPorId(_id);
     }
 
     @Put('/:_id')
-    async atualizarFluxoCusto(
+    async atualizarFluxoCaixa(
         @Param('_id', ValidacaoParametrosPipe) _id: string,
         @Body() criarFluxoCaixaDto: CriarFluxoCaixaDto): Promise<void> {
         return await this.fluxoCaixaService.atualizarFluxoCaixa(_id, criarFluxoCaixaDto);
     }
 
     @Delete('/:_id')
-    async deletarFluxoCusto(@Param('_id', ValidacaoParametrosPipe) _id: string): Promise<any> {
+    async deletarFluxoCaixa(@Param('_id', ValidacaoParametrosPipe) _id: string): Promise<any> {
         return await this.fluxoCaixaService.deletarFluxoCaixa(_id);
     }
 }

@@ -48,4 +48,24 @@ export class FluxoCaixaService {
         return await this.fluxoCaixaModel.deleteOne({ _id }).exec();
     }
 
+    async consultarFluxoCusto(): Promise<FluxoCaixa[]>{
+        const fluxoCustoEncontrado = await this.fluxoCaixaModel.find({tipo: 'C'}).exec();
+
+        if(!fluxoCustoEncontrado){
+            throw new NotFoundException(`Nenhum fluxo de custo encontrado`);
+        }
+
+        return fluxoCustoEncontrado;
+    }
+
+    async consultarFluxoReceita(): Promise<FluxoCaixa[]> {
+        const fluxoReceitaEncontrado = await this.fluxoCaixaModel.find({tipo: 'R'}).exec();
+
+        if(!fluxoReceitaEncontrado) {
+            throw new NotFoundException(`Nenhum fluxo de receita encontrado`);
+        }
+
+        return fluxoReceitaEncontrado;
+    }
+
 }
