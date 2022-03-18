@@ -5,7 +5,7 @@ export class CriarFluxoCaixaDto {
     readonly data: Date;
 
     @IsString()
-    readonly tipo: number;
+    readonly tipo: string;
 
     @IsNotEmpty()    
     readonly nome: string;
