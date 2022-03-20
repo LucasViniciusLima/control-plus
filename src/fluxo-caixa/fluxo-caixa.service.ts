@@ -48,24 +48,34 @@ export class FluxoCaixaService {
         return await this.fluxoCaixaModel.deleteOne({ _id }).exec();
     }
 
-    async consultarFluxoCusto(): Promise<FluxoCaixa[]>{
-        const fluxoCustoEncontrado = await this.fluxoCaixaModel.find({tipo: 'C'}).exec();
+    async consultarFluxoCusto(): Promise<any> {
+        const fluxoCustoEncontrado = await this.fluxoCaixaModel.find({ tipo: 'C' }).exec();
+        let totalPrecoCusto = 0;
 
-        if(!fluxoCustoEncontrado){
+        if (!fluxoCustoEncontrado) {
             throw new NotFoundException(`Nenhum fluxo de custo encontrado`);
         }
 
-        return fluxoCustoEncontrado;
+        for(let i=0;i<fluxoCustoEncontrado.length;i++){
+            totalPrecoCusto += fluxoCustoEncontrado[i].preco;
+        }
+
+        return { listaCusto: fluxoCustoEncontrado, total: totalPrecoCusto };
     }
 
-    async consultarFluxoReceita(): Promise<FluxoCaixa[]> {
-        const fluxoReceitaEncontrado = await this.fluxoCaixaModel.find({tipo: 'R'}).exec();
+    async consultarFluxoReceita(): Promise<any> {
+        const fluxoReceitaEncontrado = await this.fluxoCaixaModel.find({ tipo: 'R' }).exec();
+        let totalPrecoReceitas = 0;
 
-        if(!fluxoReceitaEncontrado) {
+        if (!fluxoReceitaEncontrado) {
             throw new NotFoundException(`Nenhum fluxo de receita encontrado`);
         }
 
-        return fluxoReceitaEncontrado;
+        for (let i = 0; i < fluxoReceitaEncontrado.length; i++) {
+            totalPrecoReceitas += fluxoReceitaEncontrado[i].preco;
+        }
+
+        return { listaReceita: fluxoReceitaEncontrado, total: totalPrecoReceitas };
     }
 
 }

@@ -21,12 +21,12 @@ export class FluxoCaixaController {
     }
 
     @Get('custos')
-    async consultarFluxosCusto(): Promise<FluxoCaixa[]> {
+    async consultarFluxosCusto(): Promise<any> {
         return await this.fluxoCaixaService.consultarFluxoCusto();
     }
 
     @Get('receitas')
-    async consultarFluxosReceita(): Promise<FluxoCaixa[]> {
+    async consultarFluxosReceita(): Promise<any> {
         return await this.fluxoCaixaService.consultarFluxoReceita();
     }
 
