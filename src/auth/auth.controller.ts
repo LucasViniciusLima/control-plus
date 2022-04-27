@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, Post, UseGuards } from '@nestjs/common';
+import { LocalAuthGuard } from './guards/local-auth.guard';
 
-@Controller('auth')
-export class AuthController {}
+@Controller()
+export class AuthController {
+
+    @Post()
+    @HttpCode(HttpStatus.OK)
+    @UseGuards(LocalAuthGuard)
+    login() {
+
+    }
+}
