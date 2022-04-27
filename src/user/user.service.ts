@@ -23,7 +23,7 @@ export class UserService {
   }
 
   findByEmail(email: string) {
-    return this.userModel.findOne({ $where: email });
+    return this.userModel.findOne({ email });
   }
 
 }

@@ -4,7 +4,7 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 @Controller()
 export class AuthController {
 
-    @Post()
+    @Post('login')
     @HttpCode(HttpStatus.OK)
     @UseGuards(LocalAuthGuard)
     login() {
