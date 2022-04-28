@@ -4,7 +4,7 @@ import { IsPublic } from './decorators/is-public.decorator';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { AuthRequest } from './models/AuthRequest';
 
-@Controller()
+@Controller('api/v1')
 export class AuthController {
     constructor(private readonly authService: AuthService) {}
 
