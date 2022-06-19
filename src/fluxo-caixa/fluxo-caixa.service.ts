@@ -78,4 +78,5 @@ export class FluxoCaixaService {
         return { listaReceita: fluxoReceitaEncontrado, total: totalPrecoReceitas };
     }
 
+
 }

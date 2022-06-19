@@ -20,6 +20,7 @@ export class FluxoCaixaController {
         return await this.fluxoCaixaService.consultarFluxosCaixa();
     }
 
+
     @Get('custos')
     async consultarFluxosCusto(): Promise<any> {
         return await this.fluxoCaixaService.consultarFluxoCusto();
