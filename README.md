@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Control Plus é uma aplicação backend desenvolvida com NestJS e TypeScript, voltada para o gerenciamento de fluxo de caixa pessoal ou empresarial. O projeto oferece uma estrutura modular com funcionalidades de controle financeiro, autenticação de usuários e organização das operações de entrada e saída de valores. Ele serve como uma prova de conceito para validar a estrutura de um sistema financeiro simples e funcional.
 
 ## Installation
 
